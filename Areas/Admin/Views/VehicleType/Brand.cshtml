@@ -1,0 +1,121 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<VehicleTypeDataModel>
+
+    @{
+        int count = 0;
+    }
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Brand Details Modal</title>
+
+</head>
+<body>
+  
+<div class="row mb-4">
+   <div class="col-md-6 text-uppercase">
+    <h1>Vehicle Type List</h1>
+    </div>
+    <div class="col-md-6 text-end">
+        <a asp-area="Admin" asp-controller="VehicleType" asp-action="Create" class="btn btn-primary">Create</a>
+    </div>
+</div>
+<hr/>
+ @if(Model.Count() > 0)
+        {
+<table id="table" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>S.No</th>
+        <th>Name</th>
+        <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+      
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@(++count)</td>
+                <td>@item.VehicleName</td>
+               
+                <td>
+                    <div class="flex-column text-center justify-content-center">
+                        <div class="w-75 btn-group" role="group">
+                        <a asp-area="Admin" asp-controller="VehicleType" asp-action="Details" class="btn btn-primary" data-placement="top" data-toggle="tooltip" title="Info" asp-route-id="@item.Id"><i class="bi-info"></i></a>
+                                    <a asp-area="Admin" asp-controller="VehicleType" asp-action="Edit" class="btn btn-warning" data-placement="top" data-toggle="tooltip" title="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a>
+                                    <button type="button" class="btn btn-danger" data-id="@item.Id" data-name="@item.VehicleName" onclick="loadBrandDetails(this)">
+                                        <i class="bi-trash-fill"></i>
+                                    </button>
+                        </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+        }
+ 
+        else{
+            <h2 class="text-lg-center">No Records</h2>
+        }
+    <div class="modal fade" id="brandModal" tabindex="-1" aria-labelledby="brandModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="brandModalLabel">Vehicle Type Details</h5>
+                    <button type="button" asp-area="Admin" asp-controller="VehicleType" asp-action="Brand" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!-- Modal Body (Dynamic Content) -->
+                <div class="modal-body" id="modalContent">
+                    <!-- Content will be dynamically loaded here using AJAX -->
+                </div>
+
+                <!-- Modal Footer with Delete and Back Buttons -->
+                <div class="modal-footer">
+                    <!-- Delete Form -->
+                    <form asp-area="Admin" asp-controller="VehicleType" asp-action="Deletedata" method="post">
+                        <input type="hidden" name="id" id="deletebrand" />
+                        <input type="hidden" name="name" id="deletebrandname"/>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>   
+                </div>
+            </div>
+        </div>
+    </div>
+
+@section Scripts{
+        <script>
+            $(document).ready(function () {
+                $('#table').DataTable();
+            });
+            function loadBrandDetails(button) {
+                const id = $(button).data('id');
+
+
+                $.ajax({
+                    url: '/Admin/VehicleType/Delete',     
+                    type: 'GET',
+                    data: { id: id, name: name },
+                    success: function (data) {
+                        $('#modalContent').html(data);
+                        $('#deletebrand').val(id);
+
+                        $('#brandModal').modal('show');
+                    },
+                    error: function () {
+                        $('#modalContent').html('<p class="text-danger">Error loading content. Please try again later.</p>');
+                    }
+                });
+            }
+        </script>
+}
+   
+</body>
+</html>
+

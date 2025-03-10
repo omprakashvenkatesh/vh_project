@@ -1,0 +1,176 @@
+﻿@using vh_project.Domain.Models
+
+@model Post
+
+<div class="container my-4">
+    <div class="card shadow-lg border-0 rounded">
+        <div class="card-header bg-primary text-white text-center text-uppercase rounded-top">
+            <h2>Post Details</h2>
+        </div>
+        <div class="card-body p-4">
+            <div class="row">
+                <!-- Brand Details Section -->
+                <div class="col-md-8">
+                    <div class="row mb-3">
+                        <div class="col-md-4 text-muted">
+                            <p class="card-text text-uppercase mb-0"> Id</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text font-weight-bold">@Model.Id</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4 text-muted">
+                            <p class="card-text text-uppercase mb-0"> Name</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text font-weight-bold">@Model.Name</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4 text-muted">
+                            <p class="card-text text-uppercase mb-0">Brand</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">@Model.Brand.Name</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4 text-muted">
+                            <p class="card-text text-uppercase mb-0">Vehicle Type</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">@Model.VehicleType.VehicleName</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4 text-muted">
+                            <p class="card-text text-uppercase mb-0">Engine and Fuel Type</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">@((EngineAndFuelType)Model.EngineType)</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4 text-muted">
+                            <p class="card-text text-uppercase mb-0">Transmission Type</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">@((Transmission)Model.Transmission)</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4 text-muted">
+                            <p class="card-text text-uppercase mb-0">Engine Power</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">@Model.Engine</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4 text-muted">
+                            <p class="card-text text-uppercase mb-0">Top Speed</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">@Model.TopSpeed</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4 text-muted">
+                            <p class="card-text text-uppercase mb-0">Mileage</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">@Model.Mileage</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4 text-muted">
+                            <p class="card-text text-uppercase mb-0">Range</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">@Model.Range</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4 text-muted">
+                            <p class="card-text text-uppercase mb-0">Seating Capacity</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">@Model.SeatingCapacity</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                       <div class="col-md-4 text-muted">
+                            <p class="card-text text-uppercase mb-0">Price From</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">@Model.PriceFrom</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4 text-muted">
+                            <p class="card-text text-uppercase mb-0">Price To</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">@Model.PriceTo</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4 text-muted">
+                            <p class="card-text text-uppercase mb-0">Ratings</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">@Model.Ratings</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4 text-muted">
+                            <p class="card-text text-uppercase mb-0">Created On</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">@Model.CreatedDate</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4 text-muted">
+                            <p class="card-text text-uppercase mb-0">Created By</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">@((Model.CreatedBy == String.Empty) ? "NA" : Model.CreatedBy)</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4 text-muted">
+                            <p class="card-text text-uppercase mb-0">Modified By</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">@((Model.LastModifiedBy == String.Empty) ? "NA" : Model.LastModifiedBy)</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4 text-muted">
+                            <p class="card-text text-uppercase mb-0">Last Modified Date</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">@((Model.LastModifiedDate == DateTime.MinValue) ? "NA" : Model.LastModifiedDate.ToString())</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Brand Logo Section -->
+                <div class="col-md-4 text-center">
+                    <div class="border rounded p-2">
+                        <img src="@Model.VehiceImage" alt="Brand Logo" class="img-fluid rounded" style="max-width: 100%; max-height: 200px;" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back Button -->
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <a asp-controller="Post" asp-action="Index" class="btn btn-outline-danger btn-lg rounded-pill px-4">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

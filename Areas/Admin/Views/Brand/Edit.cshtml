@@ -1,0 +1,59 @@
+﻿@using vh_project.Domain.Models
+@model BrandDataModel
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Edit Brand</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 border">
+            <form method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label asp-for="@Model.Name" class="form-label"></label>
+                    <input asp-for="@Model.Name" class="form-control" />
+                    <span asp-validation-for="@Model.Name" class="text-danger"></span>
+
+
+                </div>
+                <div class="mb-3">
+                    <label asp-for="@Model.Description" class="form-label"></label>
+                    <input asp-for="@Model.Description" class="form-control" />
+                    <span asp-validation-for="@Model.Description" class="text-danger"></span>
+
+                </div>
+                <div class="mb-3">
+                    <label asp-for="@Model.Publishedyear" class="form-label"></label>
+                    <input asp-for="@Model.Publishedyear" class="form-control" />
+                    <span asp-validation-for="@Model.Publishedyear" class="text-danger"></span>
+
+                </div>
+                <div class="mb-3">
+                    <label asp-for="@Model.BrandLogo" class="form-label"></label>
+                    <input asp-for="@Model.BrandLogo" type="file" name="files" id="Upload" class="form-control" />
+                    
+
+                </div>
+                <div class="mb-3">
+                    <a asp-controller="Brand" asp-action="Brand" class="btn btn-danger">Back</a>
+                    <button type="submit" class="btn btn-success ">
+                        Update
+                    </button>
+
+
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4 ">
+            <img src="@Model.BrandLogo" width="100%"/>
+        </div>
+        
+    </div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

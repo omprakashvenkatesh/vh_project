@@ -1,0 +1,132 @@
+﻿@model PostVM
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-uppercase text-center">Create Post</div>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-12 border-1 border p-4">
+            <form method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.post.Name" class="form-label"></label>
+                            <input asp-for="@Model.post.Name" class="form-control"/>
+                            <span asp-validation-for="@Model.post.Name"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.post.BrandId" class="form-label"></label>
+                            <select asp-for="@Model.post.BrandId" asp-items="@Model.BrandList" class="form-select" >
+                                <option disabled selected>--Select Brand--</option>
+                            </select>
+                            <span asp-validation-for="@Model.post.BrandId"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.post.VehicleTypeId" class="form-label"></label>
+                            <select asp-for="@Model.post.VehicleTypeId" asp-items="@Model.VehicleTypeList" class="form-select">
+                                <option disabled selected>--Select VehicleType--</option>
+                            </select>
+                            <span asp-validation-for="@Model.post.VehicleTypeId"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.post.EngineType" class="form-label"></label>
+                            <select asp-for="@Model.post.EngineType" asp-items="@Model.EngineandFuelTypeList" class="form-select">
+                                <option disabled selected>--Select EngineType--</option>
+                            </select>
+                            <span asp-validation-for="@Model.post.EngineType"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.post.Transmission" class="form-label"></label>
+                            <select asp-for="@Model.post.Transmission" asp-items="@Model.TransmissionList" class="form-select">
+                                <option disabled selected>--Select Transmission--</option>
+                            </select>
+                            <span asp-validation-for="@Model.post.Transmission"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.post.Engine" class="form-label"></label>
+                            <input asp-for="@Model.post.Engine" class="form-control" />
+                            <span asp-validation-for="@Model.post.Engine"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.post.TopSpeed" class="form-label"></label>
+                            <input asp-for="@Model.post.TopSpeed" class="form-control" />
+                            <span asp-validation-for="@Model.post.TopSpeed"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.post.Mileage" class="form-label"></label>
+                            <input asp-for="@Model.post.Mileage" class="form-control" />
+                            <span asp-validation-for="@Model.post.Mileage"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.post.Ratings" class="form-label"></label>
+                            <input asp-for="@Model.post.Ratings" class="form-control" />
+                            <span asp-validation-for="@Model.post.Ratings"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.post.SeatingCapacity" class="form-label"></label>
+                            <input asp-for="@Model.post.SeatingCapacity" class="form-control" />
+                            <span asp-validation-for="@Model.post.SeatingCapacity"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.post.Range" class="form-label"></label>
+                            <input asp-for="@Model.post.Range" class="form-control" />
+                            <span asp-validation-for="@Model.post.Range"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.post.PriceFrom" class="form-label"></label>
+                            <input asp-for="@Model.post.PriceFrom" class="form-control" />
+                            <span asp-validation-for="@Model.post.PriceFrom"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.post.PriceTo" class="form-label"></label>
+                            <input asp-for="@Model.post.PriceTo" class="form-control" />
+                            <span asp-validation-for="@Model.post.PriceTo"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label asp-for="@Model.post.VehiceImage" class="form-label"></label>
+                            <input type="file" name="files"  id="uploadBox" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                           
+                            <a asp-area="Admin" asp-controller="Post" asp-action="Index" class="btn btn-danger">Back</a>
+                            <button type="submit" class="btn btn-success ">
+                                Create
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

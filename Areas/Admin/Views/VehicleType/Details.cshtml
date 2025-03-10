@@ -1,0 +1,64 @@
+﻿@using vh_project.Domain.Models
+
+@model VehicleTypeDataModel
+
+<div class="container my-4">
+    <div class="card shadow-lg border-0 rounded">
+        <div class="card-header bg-primary text-white text-center text-uppercase rounded-top">
+            <h2>Vehicle Details</h2>
+        </div>
+        <div class="card-body p-4">
+            <div class="row">
+                <!-- Brand Details Section -->
+                <div class="col-md-8">
+                    <div class="row mb-3">
+                        <div class="col-md-4 text-muted">
+                            <p class="card-text text-uppercase mb-0">Vehicle Type Id</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text font-weight-bold">@Model.Id</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4 text-muted">
+                            <p class="card-text text-uppercase mb-0">Vehicle Name</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text font-weight-bold">@Model.VehicleName</p>
+                        </div>
+                    </div>
+                 @*    <div class="row mb-3">
+                        <div class="col-md-4 text-muted">
+                            <p class="card-text text-uppercase mb-0">Brand Description</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text">@Model.Description</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4 text-muted">
+                            <p class="card-text text-uppercase mb-0">Established Year</p>
+                        </div>
+                        <div class="col-md-8">
+                            <p class="card-text font-weight-bold">@Model.Publishedyear</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Brand Logo Section -->
+                <div class="col-md-4 text-center">
+                    <div class="border rounded p-2">
+                        <img src="@Model.BrandLogo" alt="Brand Logo" class="img-fluid rounded" style="max-width: 100%; max-height: 200px;" />
+                    </div>
+                </div>
+                    </div>*@
+
+            <!-- Back Button -->
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <a asp-controller="VehicleType" asp-action="Brand" class="btn btn-outline-danger btn-lg rounded-pill px-4">Back</a>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
